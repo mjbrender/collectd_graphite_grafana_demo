@@ -1,10 +1,13 @@
 #!/bin/bash
 
-# Update apt sources for Grafana
-cat <<EOF >> /etc/apt/sources.list
-deb https://packagecloud.io/grafana/stable/debian/ wheezy main
-EOF
-curl https://packagecloud.io/gpg.key | sudo apt-key add -
+# # Update apt sources for Grafana
+# cat <<EOF >> /etc/apt/sources.list
+# deb https://packagecloud.io/grafana/stable/debian/ wheezy main
+# EOF
+# curl https://packagecloud.io/gpg.key | sudo apt-key add -
+wget https://grafanarel.s3.amazonaws.com/builds/grafana_4.0.0-1478693311beta1_amd64.deb
+sudo apt-get install -y adduser libfontconfig
+sudo dpkg -i grafana_4.0.0-1478693311beta1_amd64.deb
 apt-get update
 
 # Graphite
@@ -133,7 +136,7 @@ service collectd stop
 service collectd start
 
 # Grafana
-apt-get install -y grafana
+# apt-get install -y grafana
 
 setcap 'cap_net_bind_service=+ep' /usr/sbin/grafana-server
 update-rc.d grafana-server defaults 95 10
