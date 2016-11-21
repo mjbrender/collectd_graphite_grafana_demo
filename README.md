@@ -3,6 +3,14 @@
 This project provides a simple demonstration of Collectd, Graphite,
 and Grafana.
 
+I ([@mjbrender](https://github.com/mjbrender)) am extending this example because it's awesome and I hope to add a little more awesome to it. 
+
+Plan: 
+
+- [x] Update to Grafana 4.0 Beta 
+- [x] Write a setup script to run [Snap](http://snap-telemetry.io/) alongside collectd here 
+- [ ] Make sure Snap runs smoothly in the demo (having some issues right now)
+
 ## Usage
 
 Use `vagrant up` to start the VM.
