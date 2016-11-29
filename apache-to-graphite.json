@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "schedule": {
+        "type": "simple",
+        "interval": "5s"
+    },
+    "max-failures": 50,
+    "workflow": {
+        "collect": {
+            "metrics": {
+                "/intel/apache/BusyWorkers": {},
+                "/intel/apache/BytesPerReq": {},
+                "/intel/apache/BytesPerSec": {},
+                "/intel/apache/CPULoad": {},
+                "/intel/apache/ConnsAsyncClosing": {},
+                "/intel/apache/ConnsAsyncKeepAlive": {},
+                "/intel/apache/ConnsAsyncWriting": {},
+                "/intel/apache/ConnsTotal": {},
+                "/intel/apache/IdleWorkers": {},
+                "/intel/apache/ReqPerSec": {},
+                "/intel/apache/Total_Accesses": {},
+                "/intel/apache/Total_kBytes": {},
+                "/intel/apache/Uptime": {},
+                "/intel/apache/workers/Closing": {},
+                "/intel/apache/workers/DNSLookup": {},
+                "/intel/apache/workers/Finishing": {},
+                "/intel/apache/workers/Idle_Cleanup": {},
+                "/intel/apache/workers/Keepalive": {},
+                "/intel/apache/workers/Logging": {},
+                "/intel/apache/workers/Open": {},
+                "/intel/apache/workers/Reading": {},
+                "/intel/apache/workers/Sending": {},
+                "/intel/apache/workers/Starting": {},
+                "/intel/apache/workers/Waiting": {}
+            },
+            "process": null,
+            "publish": [
+                {
+                    "plugin_name": "graphite",
+                    "config": {
+                        "server": "192.168.33.10",
+                        "port": 2003
+                    }
+                }, {
+                    "plugin_name": "file", 
+                    "config": {
+                        "file": "/home/vagrant/apache-snap.log"
+                    }
+                }
+            ]
+        }
+    }
+}

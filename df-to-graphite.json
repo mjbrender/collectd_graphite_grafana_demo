@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "schedule": {
+        "type": "simple",
+        "interval": "60s"
+    },
+    "max-failures": 50,
+    "workflow": {
+        "collect": {
+            "metrics": { 
+                "/intel/procfs/filesystem/*/device_name": {},
+                "/intel/procfs/filesystem/*/device_type": {},
+                "/intel/procfs/filesystem/*/inodes_free": {},
+                "/intel/procfs/filesystem/*/inodes_percent_free": {},
+                "/intel/procfs/filesystem/*/inodes_percent_reserved": {},
+                "/intel/procfs/filesystem/*/inodes_percent_used": {},
+                "/intel/procfs/filesystem/*/inodes_reserved": {},
+                "/intel/procfs/filesystem/*/inodes_used": {},
+                "/intel/procfs/filesystem/*/space_free": {},
+                "/intel/procfs/filesystem/*/space_percent_free": {},
+                "/intel/procfs/filesystem/*/space_percent_reserved": {},
+                "/intel/procfs/filesystem/*/space_percent_used": {},
+                "/intel/procfs/filesystem/*/space_reserved": {},
+                "/intel/procfs/filesystem/*/space_used": {}
+            },
+            "process": null,
+            "publish": [
+                {
+                    "plugin_name": "graphite",
+                    "config": {
+                        "server": "192.168.33.10",
+                        "port": 2003
+                    }
+                }
+            ]
+        }
+    }
+}
